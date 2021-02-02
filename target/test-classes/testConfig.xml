@@ -2,6 +2,8 @@
 
 <suite name="CucumberTests" verbose="1" >
     <test name="Regression1">
+        <parameter name="username" value="${username}"/>
+        <parameter name="password" value="${password}"/>
         <classes>
             <class name="com.timb.testrunners.TestRunner"/>
         </classes>

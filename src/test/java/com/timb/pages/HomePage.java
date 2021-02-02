@@ -13,7 +13,7 @@ public class HomePage extends LoadableComponent<HomePage> implements LoadableHel
     private WebDriver driver;
 
     @FindBy(xpath = "//a[text()='Sign in']")
-    WebElement loginButton;
+    private WebElement loginButton;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
