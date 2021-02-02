@@ -11,8 +11,11 @@ public class MessagePage extends LoadableComponent<MessagePage> implements Loada
 
     private WebDriver driver;
 
-    @FindBy(xpath = "//h4[text()='New message']")
-    private WebElement newMessageHeader;
+    @FindBy(xpath = "//div[@aria-label='Write a message…']")
+    private WebElement messageBox;
+
+    @FindBy(css = "button.msg-form__send-button")
+    private WebElement sendMessageButton;
 
     public MessagePage(WebDriver driver) {
         this.driver = driver;
@@ -27,6 +30,11 @@ public class MessagePage extends LoadableComponent<MessagePage> implements Loada
 
     @Override
     protected void isLoaded() throws Error {
-        isLoaded(driver, newMessageHeader, this.getClass().getName());
+        isLoaded(driver, messageBox, this.getClass().getName());
+    }
+
+    public void sendMessage(String messageText) {
+        messageBox.sendKeys(messageText);
+        sendMessageButton.click();
     }
 }
